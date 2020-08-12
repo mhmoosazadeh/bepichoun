@@ -1,0 +1,27 @@
+version: "3"
+services:
+  bepichoun-dnsServer:
+    container_name: bepichoun-dns-server
+    image: bepichoun-dns-server-image:${TAG}
+    build:
+      context: ./dnsServer
+      dockerfile: Dockerfile
+      args:
+        - PORT:${DNS_PORT}
+    environment:
+      - PORT=${DNS_PORT}
+      - HOST=${DNS_HOST}
+      - SERVER_PUBLIC_IP=${DNS_SERVER_PUBLIC_IP}
+      - UPSTREAM=${DNS_UPSTREAM}
+    ports:
+      - 15353:${DNS_PORT}/udp
+      - 15353:${DNS_PORT}/tcp
+  bepichoun-nginx-forward-proxy:
+    container_name: bepichoun-nginx-forward-proxy-server
+    image: bepichoun-nginx-forward-proxy-server:${TAG}
+    build:
+      context: nginxForwardProxy
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
+      - 443:443
