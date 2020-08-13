@@ -14,8 +14,8 @@ services:
       - SERVER_PUBLIC_IP=${DNS_SERVER_PUBLIC_IP}
       - UPSTREAM=${DNS_UPSTREAM}
     ports:
-      - 15353:${DNS_PORT}/udp
-      - 15353:${DNS_PORT}/tcp
+      - ${DNS_PORT}:${DNS_PORT}/udp
+      - ${DNS_PORT}:${DNS_PORT}/tcp
   bepichoun-nginx-forward-proxy:
     container_name: bepichoun-nginx-forward-proxy-server
     image: bepichoun-nginx-forward-proxy-server:${TAG}
