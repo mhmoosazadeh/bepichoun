@@ -1,4 +1,10 @@
-# bepichoun
+# Bepichoun
+
+Bepichoun contains two services:
+
+1- `dnsServer` is a simple DNS server written with javascript. This service return the `DNS_SERVER_PUBLIC_IP` for every domain in the `dnsServer/domains` file, and query DNS for all other domains from `DNS_UPSTREAM`. (By default 1.1.1.1)
+
+2- `nginxForwardProxy` Forward proxy for all HTTP and HTTPS requests.
 
 ## Requirements
 
@@ -14,6 +20,6 @@
 
 ## Modify domains
 
-1- edit `dnsServer/domains` file
+1- Edit `dnsServer/domains` file
 
 2- Rebuild docker images and recreate your containers. (`docker-compose up -d --build`)
