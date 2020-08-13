@@ -2,7 +2,7 @@
 
 Bepichoun contains two services:
 
-1- `dnsServer` is a simple DNS server written with javascript. This service return the `DNS_SERVER_PUBLIC_IP` for every domain in the `dnsServer/domains` file, and query DNS for all other domains from `DNS_UPSTREAM`. (By default 1.1.1.1)
+1- `dnsServer` is a simple DNS server written with javascript. This service returns the `DNS_SERVER_PUBLIC_IP` for every domain record in the `dnsServer/domains` file, and query DNS for all other domains from `DNS_UPSTREAM`. (By default 1.1.1.1)
 
 2- `nginxForwardProxy` Forward proxy for all HTTP and HTTPS requests.
 
